@@ -25,7 +25,7 @@ const Control = styled.div`
 `
 const ControlLabel = styled.div`
     position: relative;
-    span {
+    label {
         color: #666;
         display: block;
         margin-bottom: 10px;
@@ -176,10 +176,9 @@ class Dropdown extends React.Component {
      * @param {Object} e
      */
     onKeyDown(e) {
-        const key = e.which || e.keyCode;
-        const {activeIndex} = this.state;
+        const { activeIndex } = this.state;
 
-        switch (key) {
+        switch (e.key) {
             case KEY_CODES.RETURN:
                 this.onItemSelect(this.getActiveItem());
                 break;
@@ -201,7 +200,7 @@ class Dropdown extends React.Component {
                 e.preventDefault();
                 this.setActiveItem(0);
                 break;
-            case 'esc':
+            case KEY_CODES.ESC:
                 this.reset(true);
                 break;
             default:
@@ -249,13 +248,6 @@ class Dropdown extends React.Component {
         return this.placeholder;
     }
 
-    getListItemCSS(i) {
-        if (this.props.options[i] === this.state.selectedItem) {
-            return 'list__item list__item--selected';
-        }
-        return i === this.state.activeIndex ? 'list__item list__item--active' : 'list__item';
-    }
-
     reset(isFocusTriggerRequired) {
         // find the active item
         const idx = this.props.options.findIndex(o => o === this.state.selectedItem);
@@ -281,7 +273,7 @@ class Dropdown extends React.Component {
                 {
                     this.props.label && (
                         <ControlLabel className="control__label">
-                            <span htmlFor={`${this.props.id}-label`}>{this.props.label}</span>
+                            <label htmlFor={`${this.props.id}-label`}>{this.props.label}</label>
                         </ControlLabel>
                     )
                 }
@@ -298,7 +290,7 @@ class Dropdown extends React.Component {
                       onKeyDown={e => this.onButtonKeyDown(e)}
                     >
                         {this.getSelectedItem().label}
-                        <TriggerIcon />
+                        <TriggerIcon role="presentation" aria-hidden="true" />
                     </Trigger>
                     <ControlList
                       id={`${this.props.id}-list`}
@@ -320,7 +312,6 @@ class Dropdown extends React.Component {
                                   title={o.label}
                                   isSelected={i === this.state.activeIndex}
                                   aria-selected={i === this.state.activeIndex}
-                                  className={this.getListItemCSS(i)}
                                   onClick={() => this.onOptionClick(o, i)}
                                 >
                                     {o.label}

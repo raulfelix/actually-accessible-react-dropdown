@@ -1,16 +1,16 @@
 const KEY_CODES = Object.freeze({
-    TAB: 9,
-    RETURN: 13,
-    ESC: 27,
-    SPACE: 32,
-    PAGEUP: 33,
-    PAGEDOWN: 34,
-    END: 35,
-    HOME: 36,
-    LEFT: 37,
-    UP: 38,
-    RIGHT: 39,
-    DOWN: 40
+    TAB: 'Tab',
+    RETURN: 'Enter',
+    ESC: 'Escape',
+    SPACE: 'Space',
+    PAGEUP: 'PageUp',
+    PAGEDOWN: 'PageDown',
+    END: 'End',
+    HOME:'Home',
+    LEFT: 'ArrowLeft',
+    UP: 'ArrowUp',
+    RIGHT: 'ArrowRight',
+    DOWN: 'ArrowDown'
 });
 
 export default KEY_CODES;
