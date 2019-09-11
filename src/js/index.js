@@ -7,13 +7,13 @@ const options = [
     {label: 'Australia', value: 1},
     {label: 'Brazil', value: 2},
     {label: 'Bolivia', value: 3},
-    {label: 'Botswana', value: 4, isActive: true},
+    {label: 'Botswana', value: 4},
     {label: 'Germany', value: 5},
     {label: 'Italy', value: 6},
     {label: 'Spain', value: 7},
     {label: 'San Marino', value: 8},
     {label: 'Uruguay', value: 9},
-    {label: 'United States of America', value: 10},
+    {label: 'The wonderful United States of America', value: 10},
     {label: 'Venezuela', value: 11}
 ];
 

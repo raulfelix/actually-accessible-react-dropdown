@@ -83,12 +83,12 @@ const Trigger = styled.button`
   margin-bottom: 0;
   min-height: 40px;
   overflow: hidden;
-  padding-right: 32px;
-  padding: 7px 1rem 7px 0.65rem;
+  padding: 7px 40px 7px 0.65rem;
   position: relative;
   width: 100%;
   white-space: nowrap;
   text-align: left;
+  text-overflow: ellipsis;
 
   &:focus {
     outline: 0;
@@ -120,12 +120,7 @@ function focusTriggerButton(id) {
   document.getElementById(`${id}-button`).focus();
 }
 
-function getActiveItem(index, options, placeholder) {
-  if (index < 0) {
-      return { label: placeholder };
-  }
-  return options[index];
-}
+const getActiveItem = (index, options, placeholder) => index < 0 ? { label: placeholder } : options[index]
 
 const Dropdown = function({ id, label, options, placeholder, onSelect }) {
   const [isActive, setIsActive] = useState(false)
@@ -169,11 +164,10 @@ const Dropdown = function({ id, label, options, placeholder, onSelect }) {
 
   function setActiveItem(newIndex) {
     let idx = newIndex;
-
     if (idx >= options.length) {
-        idx = 0;
+      idx = 0;
     } else if (idx < 0) {
-        idx = options.length - 1;
+      idx = options.length - 1;
     }
 
     adjustScrollPosition(`${id}-list`, `${id}-item-${idx}`);

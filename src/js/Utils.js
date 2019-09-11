@@ -21,9 +21,7 @@ export function adjustScrollPosition(listId, elementId) {
 }
 
 export function handleListKeyUp(e) {
-    const key = e.which || e.keyCode;
-
-    switch (key) {
+    switch (e.key) {
         case KEY_CODES.UP:
         case KEY_CODES.DOWN:
         case KEY_CODES.RETURN:
@@ -36,9 +34,7 @@ export function handleListKeyUp(e) {
 }
 
 export function handleButtonKeyUp(e) {
-    const key = e.which || e.keyCode;
-
-    switch (key) {
+    switch (e.key) {
         case KEY_CODES.UP:
         case KEY_CODES.DOWN:
             e.preventDefault();
