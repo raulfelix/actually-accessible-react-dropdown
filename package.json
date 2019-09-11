@@ -1,7 +1,7 @@
 {
-  "name": "ds-dropdown",
+  "name": "react-accessible-dropdown",
   "version": "1.0.0",
-  "description": "A ReactJS dropdown component",
+  "description": "An accessible ReactJS dropdown",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.6",
