@@ -2,6 +2,7 @@
   "name": "actually-accessible-react-dropdown",
   "version": "1.1.0",
   "description": "An accessible ReactJS dropdown",
+  "keywords": ["dropdown", "picker", "accessible", "form"],
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.6",

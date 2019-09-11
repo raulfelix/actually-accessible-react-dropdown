@@ -29,7 +29,7 @@ const options = [
     {label: 'Spain', value: 7},
     {label: 'San Marino', value: 8},
     {label: 'Uruguay', value: 9},
-    {label: 'The wonderful United States of America', value: 10},
+    {label: 'The United States of America', value: 10},
     {label: 'Venezuela', value: 11}
 ];
 
