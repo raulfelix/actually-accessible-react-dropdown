@@ -232,7 +232,7 @@ const Dropdown = function({ id, label, options, placeholder, onSelect }) {
         <Trigger
           id={`${id}-button`}
           type="button"
-          className="dropdown__btn control__field-input"
+          className="control__field-input"
           aria-haspopup="listbox"
           aria-labelledby={`${id}-label ${id}-button`}
           aria-expanded={isActive}
@@ -245,7 +245,7 @@ const Dropdown = function({ id, label, options, placeholder, onSelect }) {
         </Trigger>
         <ControlList
           id={`${id}-list`}
-          className="list dropdown__list"
+          className="list"
           tabIndex="-1"
           role="listbox"
           aria-labelledby={`${id}-label`}
@@ -259,13 +259,14 @@ const Dropdown = function({ id, label, options, placeholder, onSelect }) {
               <ListItem
                 key={o.value}
                 id={`${id}-item-${i}`}
+                className={`list__item ${i === activeIndex ? 'list__item--active' : ''}`}
                 role="option"
                 title={o.label}
                 isSelected={i === activeIndex}
                 aria-selected={i === activeIndex}
                 onClick={() => onOptionClick(o, i)}
               >
-                  {o.label}
+                {o.label}
               </ListItem>
             ))
           }

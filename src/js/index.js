@@ -18,11 +18,11 @@ const options = [
 ];
 
 ReactDOM.render(
-    <Dropdown
-      id="demo1"
-      label="Select an option"
-      options={options}
-      onSelect={o => console.log(o)}
-    />,
-    document.getElementById('dropdown')
+  <Dropdown
+    id="demo1"
+    label="Select an option"
+    options={options}
+    onSelect={o => console.log(o)}
+  />,
+  document.getElementById('dropdown')
 );
