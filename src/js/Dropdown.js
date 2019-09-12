@@ -126,7 +126,7 @@ const Dropdown = function({ id, label, options, placeholder, onSelect }) {
   const [isActive, setIsActive] = useState(false)
   const [activeIndex, setActiveIndex] = useState(-1)
   const [lastSelectedValue, setLastSelectedValue] = useState(activeIndex)
-  console.log('render')
+
   useEffect(function() {
     setActiveIndex(options.findIndex(o => o.isActive))
   }, [])
@@ -161,7 +161,6 @@ const Dropdown = function({ id, label, options, placeholder, onSelect }) {
   }
 
   function onBlur() {
-    console.log(lastSelectedValue, activeIndex)
     if (lastSelectedValue !== activeIndex) {
       setActiveIndex(lastSelectedValue)
     }
