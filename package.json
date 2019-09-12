@@ -1,7 +1,11 @@
 {
   "name": "actually-accessible-react-dropdown",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "An accessible ReactJS dropdown",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/raulfelix/actually-accessible-react-dropdown.git"
+  },
   "main": "dist/index.es.js",
   "keywords": [
     "dropdown",

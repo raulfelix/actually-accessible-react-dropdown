@@ -56,3 +56,18 @@ ReactDOM.render(
 
 **onSelect** `required` - A function called when a selection is made. The label/value will be passed back as the only parameter
 
+### Accessibility
+
+Keyboard interaction
+
+`TAB` Moves keyboard focus to drop-down.
+
+`UP` `DOWN` Navigates between different menu items. Opens menu if closed.
+
+`ENTER` Closes menu and selects menu item highlighted.
+
+`ESCAPE` Menu closes without modifying selection.
+
+`HOME` If menu is open, moves focus to and selects the first option.
+
+`END` If menu is open, moves focus to and selects the last option.
