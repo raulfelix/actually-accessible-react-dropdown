@@ -58,10 +58,7 @@ module.exports = () => {
                     test: /\.(js|jsx|mjs)$/,
                     exclude: /node_modules/,
                     use: {
-                        loader: 'babel-loader',
-                        options: {
-                            presets: ['react', 'env', 'stage-2']
-                        }
+                        loader: 'babel-loader'
                     }
                 },
                 {

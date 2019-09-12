@@ -13,7 +13,7 @@ const Control = styled.div`
   font-family: 'rubik', Arial;
   position: relative;
 
-  ${({isActive}) => isActive && `
+  ${props => props.isActive && `
     ${ControlList} {
       display: block;
     }
@@ -69,7 +69,7 @@ const ListItem = styled.li`
     background-color: #f5f5f5;
   }
 
-  ${({isSelected}) => isSelected && `
+  ${props => props.isSelected && `
     background-color: #dddddd;
   `}
 `
@@ -125,7 +125,8 @@ const getActiveItem = (index, options, placeholder) => index < 0 ? { label: plac
 const Dropdown = function({ id, label, options, placeholder, onSelect }) {
   const [isActive, setIsActive] = useState(false)
   const [activeIndex, setActiveIndex] = useState(-1)
-
+  const [lastSelectedValue, setLastSelectedValue] = useState(activeIndex)
+  console.log('render')
   useEffect(function() {
     setActiveIndex(options.findIndex(o => o.isActive))
   }, [])
@@ -142,13 +143,14 @@ const Dropdown = function({ id, label, options, placeholder, onSelect }) {
   }
 
   function onOptionClick(o, i) {
+    onItemSelect(o)
     setActiveIndex(i)
-    onItemSelect(o);
+    setLastSelectedValue(i)
   }
 
   function onItemSelect(item) {
     if (isActive === false) {
-      return;
+      return
     }
 
     if (item) {
@@ -159,6 +161,10 @@ const Dropdown = function({ id, label, options, placeholder, onSelect }) {
   }
 
   function onBlur() {
+    console.log(lastSelectedValue, activeIndex)
+    if (lastSelectedValue !== activeIndex) {
+      setActiveIndex(lastSelectedValue)
+    }
     reset();
   }
 
@@ -177,7 +183,7 @@ const Dropdown = function({ id, label, options, placeholder, onSelect }) {
   function onKeyDown(e) {
     switch (e.key) {
       case KEY_CODES.RETURN:
-        onItemSelect(getActiveItem(activeIndex, options, placeholder));
+        onOptionClick(getActiveItem(activeIndex, options, placeholder), activeIndex);
         break;
       case KEY_CODES.DOWN:
         setActiveItem(activeIndex + 1)
@@ -212,12 +218,16 @@ const Dropdown = function({ id, label, options, placeholder, onSelect }) {
     adjustScrollPosition(`${id}-list`, `${id}-item-${idx}`);
     setIsActive(false)
     if (isFocusTriggerRequired) {
+      setActiveIndex(lastSelectedValue);
       setTimeout(() => focusTriggerButton(id), 100)
     }
   }
 
   return (
-    <Control isActive={isActive} className="control">
+    <Control
+      isActive={isActive}
+      className="control"
+    >
       {
         label && (
           <ControlLabel className="control__label">

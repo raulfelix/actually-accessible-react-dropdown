@@ -1,0 +1,100 @@
+.control {
+  font-family: 'rubik', Arial;
+  position: relative;
+}
+.control .trigger {
+  border-radius: 2px 2px 0 0;
+}
+.control--is-active .control__list {
+  display: block;
+}
+
+.control__label  label {
+    color: #666;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.control__field {
+  position: relative;
+}
+
+.control__list {
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: 0 0 12px rgba(0,0,0,.2);
+  display: none;
+  max-height: 240px;
+  margin: 0;
+  overflow-y: auto;
+  padding: 0px;
+  position: absolute;
+  top: 44px;
+  width: 100%;
+  z-index: 100;
+}
+.control__list:focus {
+  outline: 0;
+  box-shadow: rgba(8, 132, 252, 0.3) 0px 0px 0px 3px;
+}
+.list__item {
+  height: 40px;
+  line-height: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0 10px;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.list-item:hover {
+  background-color: #f5f5f5;
+}
+.list-item--is-selected {
+  background-color: #dddddd;
+}
+
+.trigger {
+  background-color: #fff;
+  box-sizing: border-box;
+  border: 1px solid #dddddd;
+  border-radius: 2px;
+  display: block;
+  font-size: 16px;
+  margin-bottom: 0;
+  min-height: 40px;
+  overflow: hidden;
+  padding: 7px 40px 7px 0.65rem;
+  position: relative;
+  width: 100%;
+  white-space: nowrap;
+  text-align: left;
+  text-overflow: ellipsis;
+
+}
+.trigger:focus {
+  outline: 0;
+  box-shadow: rgba(8, 132, 252, 0.3) 0px 0px 0px 3px;
+  z-index: 1;
+}
+.trigger__icon {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+}
+.trigger__icon:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #000;
+}
